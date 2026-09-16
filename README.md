@@ -10,6 +10,18 @@ It answers three questions:
 
 There's also an optional fourth comparison against the **BLS Consumer Expenditure Survey (CE)**, which tracks what households pay out of pocket rather than PCE's broader measure (which also counts what employers and government pay on people's behalf). CE is a closer match to your own budget, especially for health care. See "Optional: compare against the BLS Consumer Expenditure Survey" below.
 
+A fifth, optional step charts your spending **month to month** instead of as one annualized snapshot - useful for spotting seasonal spikes the other comparisons smooth away. See "Optional: monthly spending trend" below.
+
+## Example output
+
+Using the project's built-in sample data (not real transactions):
+
+![Example: spending mix vs. US PCE](docs/example-output/comparison.png)
+
+![Example: spending mix vs. BLS CE](docs/example-output/comparison_bls.png)
+
+![Example: monthly spending trend](docs/example-output/trend.png)
+
 ---
 
 ## Tools
@@ -36,10 +48,12 @@ pce-compare/
 ├── 03_compare.py            Step 3: builds the PCE comparison report and chart
 ├── 04_fetch_bls.py          Step 4 (optional): downloads US CE data from BLS
 ├── 05_compare_bls.py        Step 5 (optional): builds the CE comparison report and chart
+├── 06_trend.py              Step 6 (optional): builds the monthly spending trend chart
 ├── pce_common.py            Shared helper code
 ├── requirements.txt         Python packages
 ├── .env.example             Settings template (copy it to .env)
 ├── .gitignore               Keeps your key and bank data out of git
+├── docs/example-output/     Screenshots for this README (built from sample data)
 ├── data/
 │   ├── categories.csv       The 15 PCE categories, their BEA series codes, and their CE crosswalk
 │   ├── category_rules.example.csv  Generic starter keyword → category rules (copy to category_rules.csv)
@@ -264,6 +278,21 @@ This produces `output\comparison_bls.csv` and `output\comparison_bls.png`, in th
 **The category crosswalk is approximate.** CE and PCE group spending differently, so `data\categories.csv` has a `ce_key` column mapping each of the 15 PCE categories to the closest of BLS's 15 CE categories. Some PCE categories are catch-alls (like `other_nondurables` or `other_services`) that don't map cleanly to a single CE bucket - the script's output tells you which CE categories these fall into. A few CE categories (alcohol, tobacco, reading, cash contributions) have no PCE category feeding them at all, so they'll always show $0 for "You" even if you do spend there - the report lists these explicitly so you know they're not real zeros.
 
 **CE dollars are per "consumer unit"** (BLS's version of a household), not per person - unlike the PCE comparison, they are **not** multiplied by `HOUSEHOLD_SIZE`.
+
+---
+
+## Optional: monthly spending trend
+
+Do this after Step C (it only needs the categorized transactions, not either benchmark).
+
+```powershell
+python 06_trend.py
+Start-Process .\output\trend.png
+```
+
+This produces `output\trend.csv` and `output\trend.png`: a stacked bar chart of your spending by month, folded to your top 6 categories plus "Other" to keep the legend readable. It needs at least 2 months of data in `data\raw\` to be useful - with 1 month there's nothing to trend.
+
+This is the one report that isn't annualized or compared against a benchmark - it's just your own spending over time, which is where things like holiday spikes or an annual insurance payment actually show up.
 
 ---
 
