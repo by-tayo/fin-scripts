@@ -12,15 +12,21 @@ There's also an optional fourth comparison against the **BLS Consumer Expenditur
 
 A fifth, optional step charts your spending **month to month** instead of as one annualized snapshot - useful for spotting seasonal spikes the other comparisons smooth away. See "Optional: monthly spending trend" below.
 
+A sixth, optional step charts **national** PCE spending and inflation month to month (no personal data involved at all) - useful context for whether the year you're comparing against was a normal one. See "Optional: national PCE/inflation trend" below.
+
 ## Example output
 
-Using the project's built-in sample data (not real transactions):
+The first three use the project's built-in sample data (not real transactions):
 
 ![Example: spending mix vs. US PCE](docs/example-output/comparison.png)
 
 ![Example: spending mix vs. BLS CE](docs/example-output/comparison_bls.png)
 
 ![Example: monthly spending trend](docs/example-output/trend.png)
+
+This one is real - it's national data with no "you" side, so there's nothing personal in it:
+
+![Example: national PCE/inflation trend](docs/example-output/trend_national.png)
 
 ---
 
@@ -36,6 +42,7 @@ Using the project's built-in sample data (not real transactions):
 | python-dotenv | Loads your API key from a `.env` file so it stays out of the code | Free |
 | BEA API key | Access to PCE data | Free (sign up with name and email) |
 | BLS API key (optional) | Access to CE data, for the optional Step 4/5 comparison | Free (sign up with name and email) |
+| FRED API key (optional) | Access to monthly PCE/inflation data, for the optional Step 7/8 trend | Free (sign up with name and email, works instantly) |
 | Bank/card CSV exports | Your spending | Free, from your bank's website |
 
 ## What's in the folder
@@ -49,6 +56,8 @@ pce-compare/
 ├── 04_fetch_bls.py          Step 4 (optional): downloads US CE data from BLS
 ├── 05_compare_bls.py        Step 5 (optional): builds the CE comparison report and chart
 ├── 06_trend.py              Step 6 (optional): builds the monthly spending trend chart
+├── 07_fetch_fred.py         Step 7 (optional): downloads monthly PCE/inflation data from FRED
+├── 08_trend_national.py     Step 8 (optional): builds the national PCE/inflation trend chart
 ├── pce_common.py            Shared helper code
 ├── requirements.txt         Python packages
 ├── .env.example             Settings template (copy it to .env)
@@ -135,6 +144,7 @@ In Notepad, fill in:
 - `HOUSEHOLD_SIZE=`: how many people your spending covers.
 - `ANNUAL_TAKE_HOME=`: optional. Enter your yearly pay after taxes, numbers only.
 - `BLS_API_KEY=`: optional, only needed for Step 4/5 (the CE comparison). Get one free at https://www.bls.gov/developers/api_signature_v2.htm - it doesn't need email activation like the BEA key, but **renew it once a year**.
+- `FRED_API_KEY=`: optional, only needed for Step 7/8 (the national trend chart). Get one free at https://fredaccount.stlouisfed.org/apikeys - also no email activation needed.
 
 Save and close Notepad.
 
@@ -296,6 +306,24 @@ This is the one report that isn't annualized or compared against a benchmark - i
 
 ---
 
+## Optional: national PCE/inflation trend
+
+This one doesn't need your bank data at all - it's purely national numbers, for context.
+
+```powershell
+python 07_fetch_fred.py
+python 08_trend_national.py
+Start-Process .\output\trend_national.png
+```
+
+(`python 07_fetch_fred.py --offline` works too, using a saved snapshot, if you don't have a FRED key yet.)
+
+Get a free key at https://fredaccount.stlouisfed.org/apikeys and set `FRED_API_KEY` in `.env` - it works instantly, no email activation needed like the BEA key.
+
+This produces two panels: national PCE spending (the same measure the rest of this project compares you against, but monthly instead of annual) and PCE inflation - the year-over-year change in the PCE price index, which is the Federal Reserve's preferred inflation measure - against the Fed's 2% target. Useful for answering "was this a normal year to compare myself against, or an unusual one?"
+
+---
+
 ## How to read the results
 
 - **Start with the percentages.** The share of spending doesn't depend on how much you earn, so it's the fairest comparison.
@@ -322,8 +350,8 @@ This is the one report that isn't annualized or compared against a benchmark - i
 - **BEA NIPA Table 2.1**, series A072RC: personal saving rate
 - The `--offline` snapshot uses 2025 values from these series as posted on FRED (April 9, 2026 update). BEA revises its numbers, so use the live API for real results.
 - **BLS Consumer Expenditure Survey**, series `CXU...LB0101M` ("All Consumer Units", mean annual expenditure per consumer unit): the 15 CE categories used in the optional Step 4/5 comparison. The `--offline` snapshot uses 2024 values pulled directly from the BLS API. BLS revises its numbers too, so use the live API for real results.
+- **FRED (Federal Reserve Bank of St. Louis)**, series `PCE` (monthly, billions of dollars, seasonally adjusted annual rate) and `PCEPI` (monthly price index, converted to year-over-year % change): used in the optional Step 7/8 national trend chart. The `--offline` snapshot is a real pull through July 2026. FRED revises its numbers too, so use the live API for current results.
 
 ## Ideas for later
 
-- Add FRED data (free key at fredaccount.stlouisfed.org) to track how PCE and inflation change month to month.
 - Write it up for LAY/ERD: "How does my budget compare to America's?"

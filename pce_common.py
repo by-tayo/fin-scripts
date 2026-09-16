@@ -31,6 +31,11 @@ CE_META_JSON = DATA / "us_ce_meta.json"
 COMPARISON_BLS_CSV = OUTPUT / "comparison_bls.csv"
 COMPARISON_BLS_PNG = OUTPUT / "comparison_bls.png"
 
+FRED_TREND_CSV = DATA / "fred_trend.csv"
+FRED_META_JSON = DATA / "us_fred_meta.json"
+TREND_NATIONAL_CSV = OUTPUT / "trend_national.csv"
+TREND_NATIONAL_PNG = OUTPUT / "trend_national.png"
+
 EXCLUDE = "EXCLUDE"
 UNCATEGORIZED = "UNCATEGORIZED"
 
@@ -103,6 +108,16 @@ def load_ce_benchmark() -> tuple[pd.DataFrame, dict]:
     bench = pd.read_csv(CE_BENCHMARK_CSV, dtype={"ce_key": str, "series_code": str})
     meta = json.loads(CE_META_JSON.read_text(encoding="utf-8"))
     return bench, meta
+
+
+def load_fred_trend() -> tuple[pd.DataFrame, dict]:
+    """Load the national monthly PCE/inflation trend written by 07_fetch_fred.py."""
+    if not FRED_TREND_CSV.exists() or not FRED_META_JSON.exists():
+        fail("No FRED trend data yet. Run:  python 07_fetch_fred.py   "
+             "(or  python 07_fetch_fred.py --offline  to use the saved snapshot)")
+    trend = pd.read_csv(FRED_TREND_CSV, parse_dates=["date"])
+    meta = json.loads(FRED_META_JSON.read_text(encoding="utf-8"))
+    return trend, meta
 
 
 def money(x: float) -> str:

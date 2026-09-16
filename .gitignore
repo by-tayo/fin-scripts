@@ -8,6 +8,8 @@ data/pce_benchmark.csv
 data/us_meta.json
 data/ce_benchmark.csv
 data/us_ce_meta.json
+data/fred_trend.csv
+data/us_fred_meta.json
 
 # Your personal category rules (names of people/places you Zelle, your specific
 # bank's transaction patterns, etc). Copy data/category_rules.example.csv to

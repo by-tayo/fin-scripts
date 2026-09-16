@@ -1,0 +1,7 @@
+{
+  "latest_month": "2026-07",
+  "latest_pce_billions": 22250.4,
+  "latest_inflation_yoy_pct": 3.7,
+  "source": "OFFLINE SNAPSHOT: FRED API series PCE (monthly, billions $, SAAR) and PCEPI (monthly price index, 2017=100, converted to year-over-year % change), through 2026-07. FRED revises these numbers. Run 07_fetch_fred.py with your API key for current data.",
+  "fetched_at": "2026-09-16T08:35:15"
+}

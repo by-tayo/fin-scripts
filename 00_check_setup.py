@@ -77,6 +77,13 @@ else:
             note("BLS_API_KEY is blank. Optional: get one at "
                  "https://www.bls.gov/developers/api_signature_v2.htm for the CE comparison, "
                  "or run:  python 04_fetch_bls.py --offline")
+        fred_key = (values.get("FRED_API_KEY") or "").strip()
+        if fred_key:
+            ok(f"FRED_API_KEY is set (ends in ...{fred_key[-4:]}) - optional step 07/08 will run")
+        else:
+            note("FRED_API_KEY is blank. Optional: get one at "
+                 "https://fredaccount.stlouisfed.org/apikeys for the national trend chart, "
+                 "or run:  python 07_fetch_fred.py --offline")
     except ImportError:
         note("Install python-dotenv to check the .env contents.")
 
