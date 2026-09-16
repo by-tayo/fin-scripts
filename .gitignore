@@ -1,0 +1,20 @@
+# Secrets
+.env
+
+# Your real bank data and results
+data/raw/
+output/
+data/pce_benchmark.csv
+data/us_meta.json
+data/ce_benchmark.csv
+data/us_ce_meta.json
+
+# Your personal category rules (names of people/places you Zelle, your specific
+# bank's transaction patterns, etc). Copy data/category_rules.example.csv to
+# data/category_rules.csv to get started - that copy stays local and private.
+data/category_rules.csv
+
+# Python
+.venv/
+__pycache__/
+*.pyc

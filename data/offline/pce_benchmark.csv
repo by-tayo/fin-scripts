@@ -1,0 +1,16 @@
+year,key,series_code,value_billions
+2025,motor_vehicles,DMOTRC,758.834
+2025,furnishings,DFDHRC,507.340
+2025,rec_goods,DREQRC,697.612
+2025,other_durables,DODGRC,301.627
+2025,groceries,DFXARC,1529.922
+2025,clothing,DCLORC,561.764
+2025,gasoline,DGOERC,422.353
+2025,other_nondurables,DONGRC,1728.589
+2025,housing_utilities,DHUTRC,3801.214
+2025,health_care,DHLCRC,3551.570
+2025,transport_services,DTRSRC,703.698
+2025,rec_services,DRCARC,819.215
+2025,food_services,DFSARC,1495.154
+2025,financial_insurance,DIFSRC,1689.841
+2025,other_services,DOTSRC,1777.887

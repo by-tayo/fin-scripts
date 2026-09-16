@@ -1,0 +1,141 @@
+keyword,pce_key,note
+payment thank you,EXCLUDE,Credit card payment - not spending (the purchases are already counted)
+autopay,EXCLUDE,Card or loan autopay - not new spending
+credit card payment,EXCLUDE,Not new spending
+online transfer,EXCLUDE,Moving your own money
+transfer to,EXCLUDE,Moving your own money
+transfer from,EXCLUDE,Moving your own money
+savings,EXCLUDE,Saving is not consumption
+robinhood,EXCLUDE,Investing is not consumption
+fidelity,EXCLUDE,Investing is not consumption
+vanguard,EXCLUDE,Investing is not consumption
+schwab,EXCLUDE,Investing is not consumption
+coinbase,EXCLUDE,Investing is not consumption
+irs,EXCLUDE,Taxes are not consumption
+rent,housing_utilities,
+apartment,housing_utilities,
+mortgage,housing_utilities,PCE uses estimated rent for homeowners - this is a rough stand-in
+electric,housing_utilities,
+energy,housing_utilities,Change to gasoline if this is a gas station brand
+water,housing_utilities,
+utility,housing_utilities,
+waste management,housing_utilities,
+heb,groceries,
+h-e-b,groceries,
+walmart,groceries,Walmart sells many things - split if you can
+kroger,groceries,
+aldi,groceries,
+costco,groceries,Costco sells many things - split if you can
+trader joe,groceries,
+whole foods,groceries,
+sprouts,groceries,
+safeway,groceries,
+publix,groceries,
+instacart,groceries,
+shell,gasoline,
+exxon,gasoline,
+chevron,gasoline,
+valero,gasoline,
+buc-ee,gasoline,
+7-eleven,gasoline,
+circle k,gasoline,
+quiktrip,gasoline,
+restaurant,food_services,
+doordash,food_services,
+uber eats,food_services,
+grubhub,food_services,
+starbucks,food_services,
+mcdonald,food_services,
+chick-fil-a,food_services,
+whataburger,food_services,
+taco bell,food_services,
+chipotle,food_services,
+cafe,food_services,
+coffee,food_services,
+pizza,food_services,
+hotel,food_services,Lodging is grouped with restaurants in PCE
+airbnb,food_services,Lodging is grouped with restaurants in PCE
+marriott,food_services,
+hilton,food_services,
+uber,transport_services,Rides - uber eats is matched first because it is longer
+lyft,transport_services,
+airlines,transport_services,
+southwest,transport_services,
+american air,transport_services,
+delta air,transport_services,
+united air,transport_services,
+parking,transport_services,
+toll,transport_services,
+tollway,transport_services,
+ntta,transport_services,Texas toll road
+txtag,transport_services,Texas toll tag
+auto repair,transport_services,
+jiffy lube,transport_services,
+car wash,transport_services,
+dealership,motor_vehicles,
+auto loan,motor_vehicles,Loan payment - a rough stand-in for buying a car
+autozone,motor_vehicles,
+o'reilly,motor_vehicles,
+car insurance,financial_insurance,
+geico,financial_insurance,
+progressive,financial_insurance,
+state farm,financial_insurance,
+allstate,financial_insurance,
+bank fee,financial_insurance,
+overdraft,financial_insurance,
+monthly service fee,financial_insurance,
+interest charge,financial_insurance,
+pharmacy,other_nondurables,Medicines are nondurable goods in PCE
+cvs,other_nondurables,
+walgreens,other_nondurables,
+doctor,health_care,
+clinic,health_care,
+medical,health_care,
+dental,health_care,
+hospital,health_care,
+optometr,health_care,
+health insurance,health_care,
+netflix,rec_services,
+spotify,rec_services,
+hulu,rec_services,
+disney plus,rec_services,
+youtube,rec_services,
+cinema,rec_services,
+amc,rec_services,
+ticketmaster,rec_services,
+gym,rec_services,
+planet fitness,rec_services,
+steam,rec_goods,Video games
+playstation,rec_goods,
+xbox,rec_goods,
+nintendo,rec_goods,
+best buy,rec_goods,
+apple store,rec_goods,
+ikea,furnishings,
+home depot,furnishings,
+lowe's,furnishings,
+wayfair,furnishings,
+target,other_nondurables,Target sells many things - split if you can
+amazon,other_nondurables,Amazon sells many things - split if you can
+dollar general,other_nondurables,
+dollar tree,other_nondurables,
+old navy,clothing,
+nike,clothing,
+ross,clothing,
+tj maxx,clothing,
+h&m,clothing,
+zara,clothing,
+shoe,clothing,
+jewelry,other_durables,
+verizon,other_services,Phone and internet are other services in PCE
+at&t,other_services,
+t-mobile,other_services,
+spectrum,other_services,
+xfinity,other_services,
+comcast,other_services,
+tuition,other_services,Education is other services in PCE
+utsa,other_services,
+salon,other_services,
+barber,other_services,
+laundry,other_services,
+childcare,other_services,

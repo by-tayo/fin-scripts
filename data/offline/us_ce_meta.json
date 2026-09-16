@@ -1,0 +1,6 @@
+{
+  "year": 2024,
+  "total_annual_expenditure": 78535.0,
+  "source": "OFFLINE SNAPSHOT: BLS Consumer Expenditure Survey, All Consumer Units, mean annual expenditure per consumer unit (series CXU...LB0101M), 2024 data. BLS revises these numbers. Run 04_fetch_bls.py with your API key for current data.",
+  "fetched_at": "2026-09-15"
+}
