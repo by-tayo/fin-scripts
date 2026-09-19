@@ -351,7 +351,3 @@ This produces two panels: national PCE spending (the same measure the rest of th
 - The `--offline` snapshot uses 2025 values from these series as posted on FRED (April 9, 2026 update). BEA revises its numbers, so use the live API for real results.
 - **BLS Consumer Expenditure Survey**, series `CXU...LB0101M` ("All Consumer Units", mean annual expenditure per consumer unit): the 15 CE categories used in the optional Step 4/5 comparison. The `--offline` snapshot uses 2024 values pulled directly from the BLS API. BLS revises its numbers too, so use the live API for real results.
 - **FRED (Federal Reserve Bank of St. Louis)**, series `PCE` (monthly, billions of dollars, seasonally adjusted annual rate) and `PCEPI` (monthly price index, converted to year-over-year % change): used in the optional Step 7/8 national trend chart. The `--offline` snapshot is a real pull through July 2026. FRED revises its numbers too, so use the live API for current results.
-
-## Ideas for later
-
-- Write it up for LAY/ERD: "How does my budget compare to America's?"
