@@ -10,9 +10,9 @@ It answers three questions:
 
 There's also an optional fourth comparison against the **BLS Consumer Expenditure Survey (CE)**, which tracks what households pay out of pocket rather than PCE's broader measure (which also counts what employers and government pay on people's behalf). CE is a closer match to your own budget, especially for health care. See "Optional: compare against the BLS Consumer Expenditure Survey" below.
 
-A fifth, optional step charts your spending **month to month** instead of as one annualized snapshot - useful for spotting seasonal spikes the other comparisons smooth away. See "Optional: monthly spending trend" below.
+A fifth, optional step charts your spending **month to month** instead of as one annualized snapshot useful for spotting seasonal spikes the other comparisons smooth away. See "Optional: monthly spending trend" below.
 
-A sixth, optional step charts **national** PCE spending and inflation month to month (no personal data involved at all) - useful context for whether the year you're comparing against was a normal one. See "Optional: national PCE/inflation trend" below.
+A sixth, optional step charts **national** PCE spending and inflation month to month (no personal data involved at all) useful context for whether the year you're comparing against was a normal one. See "Optional: national PCE/inflation trend" below.
 
 ## Example output
 
@@ -24,7 +24,7 @@ The first three use the project's built-in sample data (not real transactions):
 
 ![Example: monthly spending trend](docs/example-output/trend.png)
 
-This one is real - it's national data with no "you" side, so there's nothing personal in it:
+This one is real it's national data with no "you" side, so there's nothing personal in it:
 
 ![Example: national PCE/inflation trend](docs/example-output/trend_national.png)
 
@@ -143,8 +143,8 @@ In Notepad, fill in:
 - `BEA_API_KEY=`: paste your key with no quotes and no spaces.
 - `HOUSEHOLD_SIZE=`: how many people your spending covers.
 - `ANNUAL_TAKE_HOME=`: optional. Enter your yearly pay after taxes, numbers only.
-- `BLS_API_KEY=`: optional, only needed for Step 4/5 (the CE comparison). Get one free at https://www.bls.gov/developers/api_signature_v2.htm - it doesn't need email activation like the BEA key, but **renew it once a year**.
-- `FRED_API_KEY=`: optional, only needed for Step 7/8 (the national trend chart). Get one free at https://fredaccount.stlouisfed.org/apikeys - also no email activation needed.
+- `BLS_API_KEY=`: optional, only needed for Step 4/5 (the CE comparison). Get one free at https://www.bls.gov/developers/api_signature_v2.htm it doesn't need email activation like the BEA key, but **renew it once a year**.
+- `FRED_API_KEY=`: optional, only needed for Step 7/8 (the national trend chart). Get one free at https://fredaccount.stlouisfed.org/apikeys also no email activation needed.
 
 Save and close Notepad.
 
@@ -283,11 +283,11 @@ Start-Process .\output\comparison_bls.png
 
 This produces `output\comparison_bls.csv` and `output\comparison_bls.png`, in the same format as the PCE comparison.
 
-**Why bother with a second comparison?** PCE counts money spent *by or on your behalf* - including what employers and government pay for things like health care - which is why the PCE comparison makes your health care spending look tiny. CE only counts what a household actually pays out of pocket, which is a much closer match to what shows up in your bank statement.
+**Why bother with a second comparison?** PCE counts money spent *by or on your behalf* including what employers and government pay for things like health care which is why the PCE comparison makes your health care spending look tiny. CE only counts what a household actually pays out of pocket, which is a much closer match to what shows up in your bank statement.
 
-**The category crosswalk is approximate.** CE and PCE group spending differently, so `data\categories.csv` has a `ce_key` column mapping each of the 15 PCE categories to the closest of BLS's 15 CE categories. Some PCE categories are catch-alls (like `other_nondurables` or `other_services`) that don't map cleanly to a single CE bucket - the script's output tells you which CE categories these fall into. A few CE categories (alcohol, tobacco, reading, cash contributions) have no PCE category feeding them at all, so they'll always show $0 for "You" even if you do spend there - the report lists these explicitly so you know they're not real zeros.
+**The category crosswalk is approximate.** CE and PCE group spending differently, so `data\categories.csv` has a `ce_key` column mapping each of the 15 PCE categories to the closest of BLS's 15 CE categories. Some PCE categories are catch-alls (like `other_nondurables` or `other_services`) that don't map cleanly to a single CE bucket the script's output tells you which CE categories these fall into. A few CE categories (alcohol, tobacco, reading, cash contributions) have no PCE category feeding them at all, so they'll always show $0 for "You" even if you do spend there the report lists these explicitly so you know they're not real zeros.
 
-**CE dollars are per "consumer unit"** (BLS's version of a household), not per person - unlike the PCE comparison, they are **not** multiplied by `HOUSEHOLD_SIZE`.
+**CE dollars are per "consumer unit"** (BLS's version of a household), not per person unlike the PCE comparison, they are **not** multiplied by `HOUSEHOLD_SIZE`.
 
 ---
 
@@ -302,13 +302,13 @@ Start-Process .\output\trend.png
 
 This produces `output\trend.csv` and `output\trend.png`: a stacked bar chart of your spending by month, folded to your top 6 categories plus "Other" to keep the legend readable. It needs at least 2 months of data in `data\raw\` to be useful - with 1 month there's nothing to trend.
 
-This is the one report that isn't annualized or compared against a benchmark - it's just your own spending over time, which is where things like holiday spikes or an annual insurance payment actually show up.
+This is the one report that isn't annualized or compared against a benchmark it's just your own spending over time, which is where things like holiday spikes or an annual insurance payment actually show up.
 
 ---
 
 ## Optional: national PCE/inflation trend
 
-This one doesn't need your bank data at all - it's purely national numbers, for context.
+This one doesn't need your bank data at all it's purely national numbers, for context.
 
 ```powershell
 python 07_fetch_fred.py
@@ -318,9 +318,9 @@ Start-Process .\output\trend_national.png
 
 (`python 07_fetch_fred.py --offline` works too, using a saved snapshot, if you don't have a FRED key yet.)
 
-Get a free key at https://fredaccount.stlouisfed.org/apikeys and set `FRED_API_KEY` in `.env` - it works instantly, no email activation needed like the BEA key.
+Get a free key at https://fredaccount.stlouisfed.org/apikeys and set `FRED_API_KEY` in `.env` it works instantly, no email activation needed like the BEA key.
 
-This produces two panels: national PCE spending (the same measure the rest of this project compares you against, but monthly instead of annual) and PCE inflation - the year-over-year change in the PCE price index, which is the Federal Reserve's preferred inflation measure - against the Fed's 2% target. Useful for answering "was this a normal year to compare myself against, or an unusual one?"
+This produces two panels: national PCE spending (the same measure the rest of this project compares you against, but monthly instead of annual) and PCE inflation - the year-over-year change in the PCE price index, which is the Federal Reserve's preferred inflation measure against the Fed's 2% target. Useful for answering "was this a normal year to compare myself against, or an unusual one?"
 
 ---
 
