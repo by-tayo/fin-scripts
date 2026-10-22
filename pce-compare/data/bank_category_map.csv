@@ -1,0 +1,55 @@
+bank_category,pce_key
+groceries,groceries
+grocery,groceries
+supermarkets,groceries
+food & drink,food_services
+restaurants,food_services
+dining,food_services
+fast food,food_services
+coffee shops,food_services
+travel,transport_services
+air travel,transport_services
+rideshare,transport_services
+lodging,food_services
+hotels,food_services
+gas,gasoline
+gas & fuel,gasoline
+gasoline,gasoline
+fuel,gasoline
+automotive,transport_services
+auto & transport,transport_services
+shopping,other_nondurables
+merchandise,other_nondurables
+general merchandise,other_nondurables
+clothing,clothing
+apparel,clothing
+electronics,rec_goods
+home,furnishings
+home improvement,furnishings
+entertainment,rec_services
+health & wellness,health_care
+health,health_care
+medical,health_care
+pharmacy,other_nondurables
+personal,other_services
+personal care,other_services
+education,other_services
+bills & utilities,housing_utilities
+utilities,housing_utilities
+rent,housing_utilities
+mortgage,housing_utilities
+phone,other_services
+internet,other_services
+insurance,financial_insurance
+fees & adjustments,financial_insurance
+fees,financial_insurance
+bank fees,financial_insurance
+payment,EXCLUDE
+payments,EXCLUDE
+transfer,EXCLUDE
+transfers,EXCLUDE
+credit card payment,EXCLUDE
+income,EXCLUDE
+paycheck,EXCLUDE
+investments,EXCLUDE
+taxes,EXCLUDE

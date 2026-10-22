@@ -1,0 +1,16 @@
+key,series_code,label,group,ce_key
+motor_vehicles,DMOTRC,Motor vehicles and parts,Durable goods,TRANS
+furnishings,DFDHRC,Furnishings and household equipment,Durable goods,HOUSING
+rec_goods,DREQRC,Recreational goods and vehicles,Durable goods,ENTRTAIN
+other_durables,DODGRC,Other durable goods,Durable goods,MISC
+groceries,DFXARC,Groceries (food and drinks for home),Nondurable goods,FOODHOME
+clothing,DCLORC,Clothing and footwear,Nondurable goods,APPAREL
+gasoline,DGOERC,Gasoline and other energy goods,Nondurable goods,TRANS
+other_nondurables,DONGRC,Other nondurable goods,Nondurable goods,PERSCARE
+housing_utilities,DHUTRC,Housing and utilities,Services,HOUSING
+health_care,DHLCRC,Health care,Services,HEALTH
+transport_services,DTRSRC,Transportation services,Services,TRANS
+rec_services,DRCARC,Recreation services,Services,ENTRTAIN
+food_services,DFSARC,Restaurants and lodging,Services,FOODAWAY
+financial_insurance,DIFSRC,Financial services and insurance,Services,INSPENSN
+other_services,DOTSRC,Other services,Services,EDUCATN

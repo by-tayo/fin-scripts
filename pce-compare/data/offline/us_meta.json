@@ -1,0 +1,8 @@
+{
+  "year": 2025,
+  "total_pce_billions": 20954.857,
+  "per_capita_pce": 61281,
+  "saving_rate_pct": 4.6,
+  "source": "OFFLINE SNAPSHOT: BEA annual data as shown on FRED (series PCECA, A794RC0A052NBEA, A072RC1A156NBEA and the 15 category series), FRED update of April 9, 2026. BEA revises these numbers. Run 01_fetch_pce.py with your API key for current data.",
+  "fetched_at": "2026-04-09"
+}
